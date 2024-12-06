@@ -1,15 +1,31 @@
-function ListGroup() {
+import { useState } from "react";
 
-  const hiragana = [ "あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ",
-     "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ",
-      "ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を",];
+interface Props {
+  items: string[]
+  heading: string
+}
 
-      
-      return (
-        <>
-      <h1>Heading</h1>
+function ListGroup({items, heading} : Props) {
+
+  const [selectedIndex, setSelectedIndex] = useState(-1)
+
+  return (
+    <>
+      <h1>{heading}</h1>
       <ul className="list-group">
-        {hiragana.map(item => <li key={item}>{item}</li>)}
+        {items.map((item, index) => (
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => setSelectedIndex(index)}
+          >
+            {item}
+          </li>
+        ))}
       </ul>
     </>
   );
