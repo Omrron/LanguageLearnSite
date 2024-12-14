@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './../Styles/CommonStyles.css'
 
 interface Props {
   items: string[];
@@ -13,24 +14,21 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
     <>
       <h1>{heading}</h1>
       
-      <ul className="list-group">
+      <div className="wrapper">
         {items.map((item, index) => (
-          <li
-            className={
-              selectedIndex === index
-                ? "list-group-item active"
-                : "list-group-item"
-            }
-            key={item}
+          <button
+            className={selectedIndex === index ? "my-btn-selected" : "my-btn"}
+            disabled = {!item}
+            key={index}
             onClick={() => {
               setSelectedIndex(index);
               onSelectItem(item);
             }}
           >
             {item}
-          </li>
+          </button>
         ))}
-      </ul>
+      </div>
     </>
   );
 }
