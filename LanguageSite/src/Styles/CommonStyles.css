@@ -5,7 +5,11 @@
     margin-right: auto;
 }
 
-.my-btn, .my-btn-selected, .inactive{
+.centered{
+    margin-left: 1em;
+}
+
+.my-btn, .my-btn-selected{
     background-color: beige;
     border:1px solid #000;
     border-radius: 8px;   

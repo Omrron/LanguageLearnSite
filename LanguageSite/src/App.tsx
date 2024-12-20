@@ -1,4 +1,5 @@
 import ListGroup from "./components/ListGroup";
+import soundA from "./assets/Audio/JapaneseA.mp3";
 
 const hiragana = [
   "あ",
@@ -58,8 +59,12 @@ const hiragana = [
   ""
 ];
 
-const handleSelectItem = (item: string) => {
+const handleSelectItem = (item: string, index:number) => {
   console.log(item)
+  let sound = new Audio(soundA);
+  sound.currentTime = index;
+  sound.play()
+  setTimeout(() => {sound.pause()}, 1000);
 }
 
 function App()

@@ -4,7 +4,7 @@ import './../Styles/CommonStyles.css'
 interface Props {
   items: string[];
   heading: string;
-  onSelectItem: (item: string) => void;
+  onSelectItem: (item: string, index:number) => void;
 }
 
 function ListGroup({ items, heading, onSelectItem }: Props) {
@@ -12,7 +12,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
 
   return (
     <>
-      <h1>{heading}</h1>
+      <h1 className="centered">{heading}</h1>
       
       <div className="wrapper">
         {items.map((item, index) => (
@@ -22,7 +22,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             key={index}
             onClick={() => {
               setSelectedIndex(index);
-              onSelectItem(item);
+              onSelectItem(item, index);
             }}
           >
             {item}
