@@ -1,50 +1,50 @@
 *,
 *::before,
 *::after {
-    /* outline: 2px solid lime; */
-    /* background-color: hsl(0 100% 50% / .1); */
+  /* outline: 2px solid lime; */
+  /* background-color: hsl(0 100% 50% / .1); */
 }
 
-.wrapper{
-    margin-inline: auto;
-    max-width: 50rem;
+.wrapper {
+  margin-inline: auto;
+  max-width: 50rem;
 }
 
 .button-container {
-    display:grid;
-    grid-template-columns: auto auto auto auto auto;
-    justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: space-evenly;
 }
 
-.centered{
-    text-align: center;
+.centered {
+  text-align: center;
 }
 
-.my-btn, .my-btn-selected{
-    background-color: beige;
-    border: 1px solid #000;
-    border-radius: 8px;   
-    height:4rem;
-    width:4rem;
-    margin-left: 1rem;
-    margin-right: 0rem;
-    margin-bottom: 1rem;
+.my-btn,
+.my-btn-selected {
+  background-color: beige;
+  border: 1px solid #000;
+  border-radius: 8px;
+  height: 4rem;
+  width: 4rem;
+  margin-left: 1rem;
+  margin-right: 0rem;
+  margin-bottom: 1rem;
 }
 
-.my-btn:disabled{
-    background-color: #a7a7a750;
-    pointer-events: none;
+.my-btn:disabled {
+  background-color: #a7a7a750;
+  pointer-events: none;
 }
 
-.my-btn-selected
-{
-    background-color: #a7cff579;
-    font-weight: bold;
+.my-btn-selected {
+  background-color: #a7cff579;
+  font-weight: bold;
 }
 
 .my-btn:hover {
-    border: 1px solid #000;
-    font-weight: bold;
-    background-color: lightcyan;
-    color: #000;
-  }
+  border: 1px solid #000;
+  font-weight: bold;
+  background-color: lightcyan;
+  color: #000;
+}
