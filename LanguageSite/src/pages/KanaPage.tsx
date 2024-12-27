@@ -1,9 +1,8 @@
-import { useState } from "react";
 import ListGroup from "../components/ListGroup";
 import { hiragana, katakana } from "../constants";
 import { word } from "../types";
-import '.././Styles/CommonStyles.css'
-import { ToggleGroup, useToggleGroup } from "@ark-ui/react";
+import ".././Styles/CommonStyles.css";
+import { Tabs } from "@ark-ui/react";
 
 const handleSelectItem = (item: word) => {
   let sound = new Audio(`src\\assets\\Audio\\${item.Translation}.mp3`);
@@ -11,40 +10,27 @@ const handleSelectItem = (item: word) => {
 };
 
 const KanaPage = () => {
-  const kanaToggleGroup = useToggleGroup();
-  const kanaTypes = ["Hiragana", "Katakana"];
-  const [activeKana, setActiveKana] = useState(kanaTypes[0])
-  
-    if (kanaToggleGroup.value.length !== 0 && kanaToggleGroup.value[0] !== activeKana)
-    {
-        setActiveKana(kanaToggleGroup.value[0]);
-    }
-
+  const kanaTypes : { [id:string] : word[]} = {"Hiragana":hiragana, "Katakana":katakana};
   return (
     <div className="wrapper">
-      <ToggleGroup.RootProvider value={kanaToggleGroup}
-      >
-        {kanaTypes.map((kanaType) => (
-          <ToggleGroup.Item className="my-radio" key={kanaType} value={kanaType}>
-            {kanaType}
-          </ToggleGroup.Item>
+      <Tabs.Root defaultValue={Object.keys(kanaTypes)[0]}>
+        <Tabs.List>
+          {Object.keys(kanaTypes).map((kanaType) => (
+            <Tabs.Trigger key={kanaType} value={kanaType}>
+              {kanaType}
+            </Tabs.Trigger>
+          ))}
+        </Tabs.List>
+        {Object.keys(kanaTypes).map((kanaType) => (
+          <Tabs.Content key={kanaType} value={kanaType}>
+            <ListGroup
+              items={kanaTypes[kanaType]}
+              heading={kanaType}
+              onSelectItem={handleSelectItem}
+            />
+          </Tabs.Content>
         ))}
-      </ToggleGroup.RootProvider>
-
-      {activeKana == "Hiragana" && (
-        <ListGroup
-          items={hiragana}
-          heading="Hiragana"
-          onSelectItem={handleSelectItem}
-        />
-      )}
-      {activeKana == "Katakana" && (
-        <ListGroup
-          items={katakana}
-          heading="Katakana"
-          onSelectItem={handleSelectItem}
-        />
-      )}
+      </Tabs.Root>
     </div>
   );
 };
