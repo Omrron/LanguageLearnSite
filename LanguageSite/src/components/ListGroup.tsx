@@ -18,7 +18,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
       <div className="button-container">
         {items.map((item, index) => (
           <button
-            className={selectedIndex === index ? "my-btn-selected" : "my-btn"}
+            className={selectedIndex === index ? "kana-btn-selected" : "kana-btn"}
             disabled = {!item.Origin}
             key={index}
             onClick={() => {

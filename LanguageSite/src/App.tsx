@@ -1,5 +1,5 @@
 import './Styles/CommonStyles.css'
-import KanaPage from './pages/kanaPage';
+import KanaPage from './pages/KanaPage';
 
 function App()
 {
