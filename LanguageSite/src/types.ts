@@ -18,3 +18,9 @@ export class word implements IWord
         this.Phonetic = phonetic
     }
 }
+
+declare module 'csstype' {
+    interface Properties {
+        [key: `--${string}`]: string | number | null | undefined;
+    }
+  }  

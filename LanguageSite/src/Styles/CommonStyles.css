@@ -2,8 +2,9 @@
 *::before,
 *::after {
   /* outline: 2px solid lime; */
-  /* background-color: hsl(0 100% 50% / .1); */
-}
+  /* background-color: hsl(0 100% 50% / .1);*/
+} 
+
 
 .wrapper {
   margin-inline: auto;
@@ -18,13 +19,15 @@
 
 .centered {
   text-align: center;
+  margin-inline: auto;
+  max-width: 50rem;
 }
 
 .kana-btn,
 .kana-btn-selected {
   background-color: #f5f5dc;
   border-color: #dadab6;
-  border-bottom: 5px outset #fdfd69;
+  border-bottom: 6px solid #adad8a;
   border-radius: 8px;
   height: 5rem;
   width: 5rem;
@@ -32,14 +35,14 @@
 }
 
 .kana-btn-selected {
+    font-weight: bold;
     background-color: lightcyan;
-    border-color: #96ABAB;
-    border-bottom-color: lightcyan;
+    border-color: #a0c9c9;
 }
 
 .kana-btn:disabled {
     background-color: #a7a7a750;
-    border:0px;
+    border: none;
     pointer-events: none;
 }
 
@@ -47,12 +50,41 @@
 .kana-btn:hover {
     font-weight: bold;
     background-color: lightcyan;
-    border-color: #96ABAB;
-    border-bottom-color: lightcyan;
+    border-color: #a0c9c9;
 }
+ 
 .kana-btn:active,
 .kana-btn-selected:active {
     margin-top: 4px;
     height: calc(5rem - 5px);
-    border: 1px solid #96ABAB;
+    border-bottom-width: 1px;
+}
+
+.tabs{
+  --bg-offset: 0%;
+  margin-block: 1em;
+  overflow: hidden;
+  position: relative;
+  width: fit-content;
+  border-radius: 0.5rem;
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.137);
+}
+
+.tabs::after {
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: rgba(44, 222, 115, 0.5);
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: var(--bg-offset);
+  transition: left 0.3s;
+}
+
+.tab{
+  background-color: transparent;
+  border: 0;
+  width:max-content;
+  padding: 0.75rem 1.5rem;
 }
