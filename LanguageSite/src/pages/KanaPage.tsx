@@ -1,9 +1,9 @@
-import ListGroup from "../components/ListGroup";
 import { hiragana, katakana } from "../constants";
 import { word } from "../types";
 import ".././Styles/CommonStyles.css";
 import { Tabs } from "@ark-ui/react";
 import { useState } from "react";
+import { ListGroup } from "../components/ListGroup";
 
 const WIDTH = 50;
 const kanaTypes : { [id:string] : word[]} = {"Hiragana":hiragana, "Katakana":katakana};
@@ -31,6 +31,7 @@ const KanaPage = () => {
             <ListGroup
               items={kanaTypes[kanaType]}
               heading={kanaType}
+              btnClassName="kana-btn"
               onSelectItem={handleSelectItem}
             />
           </Tabs.Content>

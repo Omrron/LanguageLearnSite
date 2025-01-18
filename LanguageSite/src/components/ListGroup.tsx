@@ -5,11 +5,14 @@ import { word } from "../types";
 interface Props {
   items: word[];
   heading: string;
+  btnClassName: string
+  selectedClassName?: string
   onSelectItem: (item: word, index:number) => void;
 }
 
-function ListGroup({ items, heading, onSelectItem }: Props) {
+export function ListGroup({ items, heading, btnClassName, onSelectItem, selectedClassName}: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  selectedClassName = selectedClassName ? selectedClassName : btnClassName;
 
   return (
     <>
@@ -18,7 +21,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
       <div className="button-container">
         {items.map((item, index) => (
           <button
-            className={selectedIndex === index ? "kana-btn-selected" : "kana-btn"}
+            className={selectedIndex === index ? selectedClassName : btnClassName}
             disabled = {!item.Origin}
             key={index}
             onClick={() => {
@@ -36,5 +39,3 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
     </>
   );
 }
-
-export default ListGroup;
