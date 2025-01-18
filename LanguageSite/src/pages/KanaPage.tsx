@@ -1,9 +1,10 @@
 import { hiragana, katakana } from "../constants";
 import { word } from "../types";
-import ".././Styles/CommonStyles.css";
 import { Tabs } from "@ark-ui/react";
 import { useState } from "react";
 import { ListGroup } from "../components/ListGroup";
+import "../Styles/CommonStyles.css";
+import styles from '../Styles/kana-page.module.css';
 
 const WIDTH = 50;
 const kanaTypes : { [id:string] : word[]} = {"Hiragana":hiragana, "Katakana":katakana};
@@ -15,7 +16,7 @@ const handleSelectItem = (item: word) => {
 
 const KanaPage = () => {
   const [bgOffset, setBgOffset] = useState(0);
-
+  
   return (
     <div className="wrapper">
       <Tabs.Root defaultValue={Object.keys(kanaTypes)[0]}>
@@ -31,7 +32,7 @@ const KanaPage = () => {
             <ListGroup
               items={kanaTypes[kanaType]}
               heading={kanaType}
-              btnClassName="kana-btn"
+              btnClassName= {styles[`kana-btn`]}
               onSelectItem={handleSelectItem}
             />
           </Tabs.Content>

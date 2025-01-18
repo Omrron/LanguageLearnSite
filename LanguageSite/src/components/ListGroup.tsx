@@ -1,12 +1,12 @@
 import { useState } from "react";
-import './../Styles/CommonStyles.css'
 import { word } from "../types";
+import './../Styles/CommonStyles.css'
 
 interface Props {
   items: word[];
   heading: string;
-  btnClassName: string
-  selectedClassName?: string
+  btnClassName: string;
+  selectedClassName?: string;
   onSelectItem: (item: word, index:number) => void;
 }
 
