@@ -5,7 +5,6 @@
   /* background-color: hsl(0 100% 50% / .1);*/
 } 
 
-
 .wrapper {
   margin-inline: auto;
   max-width: 50rem;
@@ -23,8 +22,7 @@
   max-width: 50rem;
 }
 
-.kana-btn,
-.kana-btn-selected {
+.kana-btn {
   background-color: #f5f5dc;
   border-color: #dadab6;
   border-bottom: 6px solid #adad8a;
@@ -34,27 +32,19 @@
   margin-bottom: 1rem;
 }
 
-.kana-btn-selected {
-    font-weight: bold;
-    background-color: lightcyan;
-    border-color: #a0c9c9;
-}
-
 .kana-btn:disabled {
     background-color: #a7a7a750;
     border: none;
     pointer-events: none;
 }
 
-.kana-btn-selected:hover,
 .kana-btn:hover {
     font-weight: bold;
     background-color: lightcyan;
     border-color: #a0c9c9;
 }
  
-.kana-btn:active,
-.kana-btn-selected:active {
+.kana-btn:active {
     margin-top: 4px;
     height: calc(5rem - 5px);
     border-bottom-width: 1px;
